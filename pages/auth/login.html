@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHub Login</title>
+    <link rel="stylesheet" href="../../CSS/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">U</div>
+                <span class="logo-text">UniHub</span>
+            </div>
+            <div class="sidebar-content">
+                <h2>Welcome back to your campus community</h2>
+                <p>Log in to UniHub and stay connected with your classmates, events, and campus life.</p>
+            </div>
+            <div class="copyright">© 2025 UniHub. All rights reserved.</div>
+        </div>
+        <div class="main-content">
+            <div class="form-container">
+                <h1>Log in to UniHub</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="identifier">Email or University ID</label>
+                        <input type="text" id="identifier" name="identifier" placeholder="Enter your email or University ID" required>
+                        <p class="error-message" id="identifierError"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <p class="error-message" id="passwordError"></p>
+                    </div>
+                    <button type="submit">Log In</button>
+                </form>
+                <p class="forgot-password"><a href="#">Forgot your password?</a></p>
+                <p class="signup-link">Don't have an account? <a href="../auth/signup.html">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="/JS/login.js"></script>
+</body>
+</html>
