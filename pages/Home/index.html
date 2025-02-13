@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHub - Home Feed</title>
+    <link rel="stylesheet" href="../../CSS/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>UniHub</h1>
+            <div class="search-bar">
+                <input type="text" placeholder="Search UniHub">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="user-avatar">
+                <img src="https://i.pravatar.cc/150?img=7" alt="User Avatar">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="side-nav">
+            <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+            <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+            <a href="#"><i class="fas fa-users"></i> Study Groups</a>
+            <a href="#"><i class="fas fa-university"></i> Club Centre</a>
+            <a href="#"><i class="fas fa-calendar-alt"></i> Events</a>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+        </nav>
+
+        <main>
+            <div class="stories-container">
+                <div class="story add-story">
+                    <div class="story-avatar">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <span>Add Story</span>
+                </div>
+                <!-- Stories will be dynamically inserted here -->
+            </div>
+
+            <div class="create-post">
+                <img src="https://i.pravatar.cc/150?img=7" alt="User Avatar" class="user-avatar">
+                <input type="text" placeholder="What's happening on campus?">
+                <button>Post</button>
+            </div>
+
+            <div id="feed-container">
+                <!-- Posts will be dynamically inserted here -->
+            </div>
+        </main>
+
+        <aside class="suggested-accounts">
+            <h3>Suggested Accounts</h3>
+            <!-- Suggested accounts will be dynamically inserted here -->
+        </aside>
+    </div>
+
+    <footer>
+        <nav>
+            <a href="#" class="active"><i class="fas fa-home"></i></a>
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-plus-square"></i></a>
+            <a href="#"><i class="fas fa-bell"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </nav>
+    </footer>
+
+    <script src="../../JS/home.js"></script>
+</body>
+</html>
