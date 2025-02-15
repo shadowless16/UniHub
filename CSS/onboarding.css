@@ -1,0 +1,304 @@
+:root {
+    --primary: #2A3B4F;
+    --secondary: #3AAFA9;
+    --accent: #FF6B6B;
+    --neutral: #FFFFFF;
+    --neutral-light: #F5F5F5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--neutral-light);
+    color: var(--primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.onboarding-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: 
+        linear-gradient(135deg, 
+            rgba(42, 59, 79, 0.97) 0%, 
+            rgba(58, 175, 169, 0.95) 100%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 2px,
+            transparent 2px,
+            transparent 10px
+        );
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.onboarding-content {
+    background-color: var(--neutral);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.onboarding-content::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.onboarding-content::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.onboarding-content h1 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.onboarding-content p {
+    color: var(--secondary);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.onboarding-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.onboarding-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.onboarding-form input,
+.onboarding-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--neutral-light);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.onboarding-form input:focus,
+.onboarding-form select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(58, 175, 169, 0.2);
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--secondary);
+    color: var(--neutral);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.error-message {
+    color: var(--accent);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.error-message::before {
+    content: '!';
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    background-color: var(--accent);
+    color: var(--neutral);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.onboarding-form .form-group {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.onboarding-form .form-group:nth-child(1) { animation-delay: 0.1s; }
+.onboarding-form .form-group:nth-child(2) { animation-delay: 0.2s; }
+.onboarding-form .form-group:nth-child(3) { animation-delay: 0.3s; }
+.onboarding-form .form-group:nth-child(4) { animation-delay: 0.4s; }
+.onboarding-form .form-group:nth-child(5) { animation-delay: 0.5s; }
+
+.btn-primary {
+    animation: fadeIn 0.5s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .onboarding-content {
+        padding: 2rem;
+    }
+
+    .onboarding-content h1 {
+        font-size: 2rem;
+    }
+
+    .onboarding-content p {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        padding: 0.875rem;
+    }
+}
+
+/* Additional styles for other pages to maintain consistency */
+
+header {
+    background-color: var(--primary);
+    color: var(--neutral);
+    padding: 1rem 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--neutral);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: var(--neutral);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent);
+}
+
+.main-content {
+    padding: 2rem 0;
+}
+
+.card {
+    background-color: var(--neutral);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+footer {
+    background-color: var(--primary);
+    color: var(--neutral);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--neutral);
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+}

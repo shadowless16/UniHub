@@ -1,0 +1,77 @@
+.fixed-bottom .nav-link {
+    box-shadow: none;
+}
+
+.btn-group .btn.btn-light.active {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.featured-clubs .card {
+    border-radius: 16px;
+}
+
+.featured-clubs .card-body {
+    padding: 1.5rem !important;
+}
+
+.featured-clubs .card-body .d-flex {
+    margin-top: 1.5rem !important;
+}
+
+/* Join button styling */
+.btn-secondary {
+    background-color: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Club Cards */
+.card {
+    transition: transform 0.5s ease, box-shadow 0.6s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Club Images */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Join Button */
+.btn-follow {
+    background-color: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.btn-follow:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.btn-follow.joined {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* Category Filters */
+.category-filters .btn.active {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.category-filters .btn:hover {
+    background-color: var(--secondary);
+    color: white;
+}

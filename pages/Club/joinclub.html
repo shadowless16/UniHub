@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHub - Club Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../CSS/joinclub.css">
+    <link rel="stylesheet" href="../../CSS/components/header.css">
+</head>
+<body class="bg-light">
+    <!-- Header -->
+    <header class="fixed-top bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="../../pages/Home/index.html">UniHub Clubs</a>
+                <div class="d-none d-lg-flex flex-grow-1 mx-4">
+                    <div class="input-group rounded-pill bg-light">
+                        <input type="text" class="form-control border-0 bg-transparent" placeholder="Search clubs...">
+                        <button class="btn btn-link text-secondary">
+                            <i class="fas fa-search fs-5"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <button class="navbar-toggler border-0" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#mobileNav">
+                        <i class="fas fa-bars fs-5 text-secondary"></i>
+                    </button>
+                    <img src="https://i.pravatar.cc/150?img=7" 
+                        class="rounded-circle" 
+                        width="40" height="40" 
+                        alt="User profile">
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container pt-5 mt-3 pb-5">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="card mb-3 sidebar-card">
+                    <div class="card-body">
+                        <nav class="nav flex-column">
+                            <a class="nav-link active" href="#"><i class="fas fa-building me-2"></i> Clubs</a>
+                            <a class="nav-link" href="../../pages/Home/index.html"><i class="fas fa-home me-2"></i> Home</a>
+                            <a class="nav-link" href="#"><i class="fas fa-user me-2"></i> Profile</a>
+                            <a class="nav-link" href="#"><i class="fas fa-bell me-2"></i> Notifications</a>
+                            <a class="nav-link" href="#"><i class="fas fa-envelope me-2"></i> Messages</a>
+                            <a class="nav-link" href="#"><i class="fas fa-users me-2"></i> Study Groups</a>
+                            <a class="nav-link" href="#"><i class="fas fa-calendar-alt me-2"></i> Events</a>
+                            <div class="dropdown-divider my-3"></div>
+                            <a class="nav-link" href="#"><i class="fas fa-cog me-2"></i> Settings</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Featured Clubs -->
+                <div class="row g-4 mb-5">
+                    <!-- Dynamically rendered by JavaScript -->
+                </div>
+
+                <!-- Category Filters -->
+                <div class="btn-group category-filters mb-4" role="group">
+                    <button class="btn btn-light active rounded-pill shadow-sm px-4">All Clubs</button>
+                    <button class="btn btn-light rounded-pill shadow-sm px-4">Academic</button>
+                    <button class="btn btn-light rounded-pill shadow-sm px-4">Arts</button>
+                    <button class="btn btn-light rounded-pill shadow-sm px-4">Sports</button>
+                </div>
+
+                <!-- Club Grid -->
+                <div class="row row-cols-1 row-cols-md-3 g-4" id="clubGrid">
+                    <!-- Dynamically rendered by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="fixed-bottom bg-white shadow-lg d-lg-none">
+        <div class="container">
+            <div class="d-flex justify-content-around py-3">
+                <a href="../../pages/Home/index.html" class="nav-link text-secondary">
+                    <i class="fas fa-home fs-4"></i>
+                </a>
+                <a href="#" class="nav-link text-secondary">
+                    <i class="fas fa-compass fs-4"></i>
+                </a>
+                <a href="#" class="nav-link text-secondary">
+                    <i class="fas fa-plus fs-4"></i>
+                </a>
+                <a href="#" class="nav-link text-secondary">
+                    <i class="fas fa-bell fs-4"></i>
+                </a>
+                <a href="#" class="nav-link text-secondary">
+                    <i class="fas fa-user fs-4"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../JS/joinclub-data.js"></script>
+    <script src="../../JS/joinclub.js"></script>
+</body>
+</html>

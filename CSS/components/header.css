@@ -1,0 +1,80 @@
+:root {
+  --primary: #2A3B4F;
+  --secondary: #3AAFA9;
+  --accent: #FF6B6B;
+}
+
+/* Header Styles */
+.fixed-top {
+  border-bottom: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand {
+  color: var(--secondary) !important;
+}
+
+.search-input {
+  border-radius: 50px !important;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+  position: sticky;
+  top: 80px;
+}
+
+.nav-link {
+  color: #333 !important;
+  border-radius: 50px !important;
+  padding: 0.5rem 1rem !important;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link .fas {
+  color: var(--secondary);
+  margin-right: 10px;
+}
+
+.nav-link.active {
+  background-color: rgba(58, 175, 169, 0.1) !important;
+  color: var(--secondary) !important;
+}
+
+.nav-link:hover {
+  background-color: rgba(58, 175, 169, 0.1) !important;
+  color: var(--secondary) !important;
+}
+
+/* Mobile Navigation */
+.fixed-bottom {
+  border-top: none !important;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.fixed-bottom .fas {
+  color: #6c757d;
+  transition: color 0.3s;
+}
+
+.fixed-bottom a:hover .fas,
+.fixed-bottom a.active .fas {
+  color: var(--secondary);
+}
+
+/* Plus button in mobile nav */
+.fixed-bottom a:nth-child(3) .fas {
+  color: var(--secondary);
+}
+
+/* Common card styles */
+.card {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

@@ -1,381 +1,250 @@
 :root {
-    --primary: #2A3B4F;
-    --secondary: #3AAFA9;
-    --accent: #FF6B6B;
-    --neutral: #FFFFFF;
-    --neutral-light: #F5F5F5;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: var(--neutral-light);
-    color: var(--primary);
-    line-height: 1.6;
-  }
-  
-  /* Responsive Header */
-  header {
-    background-color: var(--neutral);
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  header h1 {
-    font-size: 1.5rem;
-    color: var(--primary);
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    background-color: var(--neutral-light);
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    flex-grow: 1;
-    margin: 0 1rem;
-  }
-  
-  .search-bar input {
-    border: none;
-    background-color: transparent;
-    margin-right: 0.5rem;
-    flex-grow: 1;
-    outline: none;
-  }
-  
-  .search-bar i {
-    color: var(--primary);
-  }
-  
-  .user-avatar img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-  }
-  
-  .container {
-    display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
-  .side-nav {
-    display: none;
-  }
-  
-  main {
-    flex-grow: 1;
+  --primary: #2A3B4F;
+  --secondary: #3AAFA9;
+  --accent: #FF6B6B;
+}
+
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.btn-primary { 
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+}
+.btn-primary:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.story-circle {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--secondary) !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.story-add {
+  background-color: var(--secondary) !important;
+  color: white;
+}
+
+.post-action {
+  transition: color 0.3s;
+  cursor: pointer;
+}
+.post-action:hover {
+  color: var(--accent) !important;
+}
+
+
+/* Sidebar active link color */
+
+.nav-link {
+  color: #333 !important;
+  border-radius: 50px !important;
+  padding: 0.5rem 1rem !important;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Left sidebar icons */
+.nav-link .fas {
+  color: var(--secondary);
+}
+
+.nav-link.active {
+  background-color: rgba(58, 175, 169, 0.1) !important;
+  color: var(--secondary) !important;
+}
+
+.nav-link .fas {
+  margin-right: 10px;
+}
+
+.nav-link:hover {
+  background-color: rgba(58, 175, 169, 0.1) !important; /* Light version of secondary color */
+  color: var(--secondary) !important;
+}
+
+/* Mobile Navigation */
+.fixed-bottom .fas {
+  color: #6c757d; /* default color */
+  transition: color 0.3s;
+}
+
+.fixed-bottom a:hover .fas,
+.fixed-bottom a.active .fas {
+  color: var(--secondary);
+}
+
+/* Plus button in mobile nav */
+.fixed-bottom a:nth-child(3) .fas {
+  color: var(--secondary);
+}
+
+/* Follow Button Styles */
+.btn-follow {
+  background-color: var(--secondary);
+  color: white;
+  border: 1px solid var(--secondary);
+  transition: all 0.3s ease;
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-follow:hover {
+  background-color: var(--accent) ;
+  color: white;
+}
+
+.btn-follow.following {
+  background-color: transparent;
+  color: var(--secondary);
+}
+
+.btn-follow.following:hover {
+  background-color: var(--accent) !important;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Container and Card Styles */
+.card {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Stories Container */
+.stories-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  border: none;
+}
+
+/* Create Post Container */
+.create-post {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Feed Posts */
+#feed-container .card {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+/* Suggested Accounts Container */
+.suggested-accounts {
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Left Sidebar Container */
+.col-lg-3 .sidebar-card {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Mobile Navigation */
+.fixed-bottom {
+  border-top: none !important;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Header */
+.fixed-top {
+  border-bottom: none !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.stories-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  border: none;
+}
+
+@media (min-width: 992px) {
+  .stories-container::-webkit-scrollbar {
+      display: none;
   }
   
   .stories-container {
-    display: flex;
-    overflow-x: auto;
-    padding: 1rem 0;
-    margin-bottom: 1rem;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
   }
-  
-  .story {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    margin-right: 1rem;
-    cursor: pointer;
-  }
-  
-  .story-avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: var(--secondary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--neutral);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .add-story .story-avatar {
-    background-color: var(--neutral);
-    border: 2px dashed var(--secondary);
-    color: var(--secondary);
-    border-radius: 50%; /* Add this line */
-  }
-  
-  .create-post {
-    display: flex;
-    align-items: center;
-    background-color: var(--neutral);
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
-  
-  .create-post .user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 1rem;
-  }
-  
-  .create-post input {
-    flex-grow: 1;
-    border: none;
-    background-color: transparent;
-    margin-right: 1rem;
-    outline: none;
-    font-size: 1rem;
-  }
-  
-  .create-post button {
-    background-color: var(--secondary);
-    color: var(--neutral);
-    border: none;
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 0.9rem;
-  }
-  
-  .create-post button:hover {
-    background-color: var(--accent);
-  }
-  
-  #feed-container {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .post {
-    background-color: var(--neutral);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .post-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .post-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 0.5rem;
-  }
-  
-  .post-author {
-    font-weight: bold;
-    color: var(--primary);
-  }
-  
-  .post-timestamp {
-    font-size: 0.8rem;
-    color: #777;
-    margin-left: 0.5rem;
-  }
-  
-  .post-content {
-    margin-bottom: 1rem;
-  }
-  
-  .post-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 0.5rem;
-  }
-  
-  .post-actions {
-    display: flex;
-    justify-content: space-between;
-    color: #777;
-  }
-  
-  .post-action {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
-  
-  .post-action:hover {
-    color: var(--accent);
-  }
-  
-  .post-action.liked {
-    color: var(--accent);
-  }
-  
-  .post-action i {
-    font-size: 1.2rem;
-  }
-  
-  .suggested-accounts {
-    display: none;
-    background-color: none;
-  }
-  
-  footer {
-    background-color: var(--neutral);
-    padding: 0.5rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  footer nav {
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  footer a {
-    color: var(--primary);
-    text-decoration: none;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-  }
-  
-  footer a.active {
-    color: var(--accent);
-  }
-  
-  @media (min-width: 768px) {
-    .container {
-      flex-direction: row;
-    }
-  
-    .side-nav {
-      display: flex;
-      flex-direction: column;
-      width: 200px;
-      margin-right: 2rem;
-    }
-  
-    .side-nav a {
-      color: var(--primary);
-      text-decoration: none;
-      padding: 0.5rem;
-      margin-bottom: 0.5rem;
-      border-radius: 20px;
-      transition: background-color 0.3s;
-    }
-  
-    .side-nav a:hover,
-    .side-nav a.active {
-      background-color: var(--secondary);
-      color: var(--neutral);
-    }
-  
-    .suggested-accounts {
-      display: block;
-      width: 250px;
-      height: fit-content;
-      margin-left: 2rem;
-      background-color: var(--neutral);
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  
-    .suggested-account {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-  
-    .suggested-account img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 0.5rem;
-    }
-  
-    .suggested-account-info {
-      flex-grow: 1;
-    }
-  
-    .suggested-account-name {
-      font-weight: bold;
-    }
-  
-    .suggested-account-username {
-      font-size: 0.8rem;
-      color: #777;
-    }
-  
-    .follow-btn {
-      background-color: var(--secondary);
-      color: var(--neutral);
-      border: none;
-      border-radius: 20px;
-      padding: 0.25rem 0.75rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-  
-    .follow-btn:hover {
-      background-color: var(--accent);
-    }
-  
-    footer {
-      display: none;
-    }
-  }
-  
-  @media (max-width:767px) {
-    header h1 {
-      font-size: 1.2rem;
-    }
-  
-    .container {
-      padding: 0.5rem;
-    }
-  
-    .create-post {
-      padding: 0.75rem;
-    }
-  
-    .create-post button {
-      padding: 0.4rem 0.8rem;
-      font-size: 0.85rem;
-    }
-  
-    footer nav a {
-      padding: 0.8rem;
-      font-size: 1.3rem;
-    }
-  
-    footer {
-      padding: 0.3rem;
-    }
-  }
+}
+
+.like-button {
+  transition: all 0.3s ease;
+}
+
+.like-button.text-danger {
+  animation: likeAnimation 0.3s ease;
+}
+
+@keyframes likeAnimation {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Add these styles for comments */
+.comment-section {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.comment-item {
+  transition: all 0.3s ease;
+}
+
+.comment-content {
+  background-color: #f8f9fa;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem !important;
+}
+
+.comment-input {
+  border-radius: 20px;
+}
+
+.add-comment-btn {
+  background-color: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  border-radius: 20px;
+}
+
+.add-comment-btn:hover {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus,
+.form-control:focus {
+  border-color: var(--secondary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(58, 175, 169, 0.25) !important;
+  outline: 0 !important;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(58, 175, 169, 0.25) !important;
+}
