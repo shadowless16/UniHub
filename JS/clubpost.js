@@ -93,6 +93,33 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
+         // Handle all post triggers
+        document.querySelectorAll('.post-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.querySelector('.modal-input').value = '';
+            previewContainer.innerHTML = '';
+            fileInput.value = '';
+        }
+
+        // Handle file uploads
+        document.querySelectorAll('.tool-btn').forEach(btn => {
+            btn.addEventListener('click', () => fileInput.click());
+        });
+
         // Add event listeners
         const likeBtn = postElement.querySelector('.like-btn');
         const commentBtn = postElement.querySelector('.comment-btn');
@@ -145,11 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     previewItem.className = 'preview-item';
                     previewItem.innerHTML = `
                         ${file.type.startsWith('image/') ? 
-                            `<img src="${e.target.result}" alt="File preview">` : 
+                            `<img src="${e.target.result}" alt="Preview">` : 
                             `<video src="${e.target.result}" controls></video>`}
                         <button class="remove-preview">×</button>
                     `;
                     previewContainer.appendChild(previewItem);
+                    
+                    // Add remove functionality
                     previewItem.querySelector('.remove-preview').addEventListener('click', () => {
                         previewItem.remove();
                     });

@@ -8,51 +8,118 @@
 
 .bg-primary-light { background-color: rgba(42,59,79,0.1); }
 .border-primary { border-color: var(--primary) !important; }
-.btn-secondary { background-color: var(--secondary); border-color: var(--secondary); }
-.btn-secondary:hover { background-color: var(--accent); border-color: var(--accent); }
-.nav-pills .nav-link.active { background-color: var(--secondary) !important; }
+.btn-secondary { 
+    background-color: var(--secondary) !important; 
+    border-color: var(--secondary) !important; 
+}
+.btn-secondary:hover { 
+  background-color: var(--accent) !important; 
+  border-color: var(--accent) !important; 
+}
 .text-primary { color: var(--primary) !important; }
 .text-secondary { color: var(--secondary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+
 .post-grid img { height: 200px; object-fit: cover; }
 
 
 /* Sidebar active link color */
-
 .nav-link {
-    color: #333 !important; /* Default black text */
-    border-radius: 50px !important; /* Rounded borders like follow button */
-    padding: 0.5rem 1rem !important;
-    margin-bottom: 0.5rem;
-    transition: all 0.3s ease;
-  }
-  
-  /* Left sidebar icons */
-  .nav-link .fas {
-    color: var(--secondary);
-  }
-  
-  .nav-link.active {
-    background-color: rgba(58, 175, 169, 0.1) !important;
-    color: var(--secondary) !important;
-  }
-  
-  .nav-link .fas {
-    margin-right: 10px;
-  }
-  
-  .nav-link:hover {
-    background-color: rgba(58, 175, 169, 0.1) !important; /* Light version of secondary color */
-    color: var(--secondary) !important;
-  }
+  color: #333 !important; 
+  border-radius: 50px !important; 
+  padding: 0.5rem 1rem !important;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
 
-  .card {
-    color: #ffffff;
-  }
+.nav-link .fas {
+  color: var(--secondary);
+  margin-right: 10px;
+}
 
-  .text-secondary {
-    color: var(--bs-secondary) !important;
-  }
+.nav-link.active {
+  background-color: rgba(58, 175, 169, 0.1) !important;
+  color: var(--secondary) !important;
+}
 
-  .bg-secondary {
-    background-color: var(--bs-secondary) !important;
-  }
+.nav-link .fas {
+  margin-right: 10px;
+}
+
+
+.navbar-brand {
+  color: var(--secondary) !important;
+}
+
+.navbar-brand:hover {
+    color: var(--accent) !important;
+}
+
+.card {
+  color: #ffffff;
+}
+
+.text-secondary {
+  color: var(--secondary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary) !important;
+}
+
+.department {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+/* Add these styles to your existing CSS */
+.followers-count, .following-count {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.text-white-50 {
+  font-size: 0.875rem;
+}
+
+.profile-stats {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.profile-stats:hover {
+  opacity: 0.8;
+}
+
+.post-card {
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.post-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.post-card .card-body {
+  background: rgba(0, 0, 0, 0.546);
+  padding: 0.75rem;
+}
+
+.post-interaction {
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.post-interaction:hover {
+  color: var(--accent);
+}
+
+.post-interaction.liked {
+  color: var(--accent);
+}

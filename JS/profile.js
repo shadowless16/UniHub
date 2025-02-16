@@ -15,21 +15,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update the post rendering section
     const postsContainer = document.querySelector('#posts .row');
-    postsContainer.innerHTML = profileData.posts.map(post => `
+    postsContainer.innerHTML = profileData.posts.map((post, index) => `
         <div class="col">
-            <div class="card shadow-sm">
-                <img src="${post.image}" class="card-img-top">
-                <div class="card-body d-flex justify-content-between">
-                    <span class="text-secondary"> 
-                        <i class="fas fa-heart"></i> ${post.likes}
+            <div class="card shadow-sm post-card">
+                <img src="${post.image}" class="card-img-top" alt="Post image">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <span class="post-interaction like-btn" data-post-id="${index}"> 
+                        <i class="far fa-heart"></i> <span class="likes-count">${post.likes}</span>
                     </span>
-                    <span class="text-secondary">  
-                        <i class="fas fa-comment"></i> ${post.comments}
+                    <span class="post-interaction comment-btn" data-post-id="${index}">  
+                        <i class="far fa-comment"></i> <span class="comments-count">${post.comments}</span>
                     </span>
                 </div>
             </div>
         </div>
     `).join('');
+
+    // Add event listeners for likes
+    document.querySelectorAll('.like-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const postId = btn.dataset.postId;
+            const likesCount = btn.querySelector('.likes-count');
+            const heartIcon = btn.querySelector('i');
+            
+            if (heartIcon.classList.contains('far')) {
+                heartIcon.classList.replace('far', 'fas');
+                profileData.posts[postId].likes++;
+                btn.classList.add('liked');
+            } else {
+                heartIcon.classList.replace('fas', 'far');
+                profileData.posts[postId].likes--;
+                btn.classList.remove('liked');
+            }
+            
+            likesCount.textContent = profileData.posts[postId].likes;
+        });
+    });
+
+    // Add event listeners for comments
+    document.querySelectorAll('.comment-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const postId = btn.dataset.postId;
+            // You can add comment functionality here
+            // For example, open a comment modal
+            alert('Comment feature coming soon!');
+        });
+    });
 
     // Render Friends
     const friendsContainer = document.querySelector('#friends .row');
