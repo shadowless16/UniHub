@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniHub - Events</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Flatpickr for date/time picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        :root {
+            --primary: #17252A;
+            --secondary: #3AAFA9;
+            --accent: #FF6B6B;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--primary);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(23, 37, 42, 0.9), rgba(23, 37, 42, 0.8)),
+                        url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #2E8F8A;
+            border-color: #2E8F8A;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #FF5252;
+            border-color: #FF5252;
+        }
+
+        .event-card {
+            border: none;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-banner {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .nav-tabs .nav-link {
+            color: var(--primary);
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 0.25rem rgba(58, 175, 169, 0.25);
+        }
+
+        #createEventModal .modal-header {
+            background-color: var(--primary);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4">Create & Explore Exciting Events!</h1>
+            <p class="lead mb-4">Join amazing events or create your own to connect with fellow students.</p>
+            <button class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#createEventModal">
+                Create New Event
+            </button>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <div class="container mb-5">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs mb-4" id="eventTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="upcoming-tab" data-bs-toggle="tab" data-bs-target="#upcoming" type="button">
+                    Upcoming Events
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="past-tab" data-bs-toggle="tab" data-bs-target="#past" type="button">
+                    Past Events
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="eventTabsContent">
+            <!-- Upcoming Events -->
+            <div class="tab-pane fade show active" id="upcoming">
+                <div class="row g-4" id="upcomingEvents">
+                    <!-- Events will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Past Events -->
+            <div class="tab-pane fade" id="past">
+                <div class="row g-4" id="pastEvents">
+                    <!-- Events will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Event Modal -->
+    <div class="modal fade" id="createEventModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create New Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="eventForm">
+                        <div class="mb-3">
+                            <label class="form-label">Event Name</label>
+                            <input type="text" class="form-control" id="eventName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date & Time</label>
+                            <input type="text" class="form-control" id="eventDateTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Venue</label>
+                            <input type="text" class="form-control" id="eventVenue" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Associated Club</label>
+                            <select class="form-select" id="eventClub">
+                                <option value="">Select a club (optional)</option>
+                                <option>Programming Club</option>
+                                <option>Photography Club</option>
+                                <option>Chess Club</option>
+                                <option>Debate Society</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Event Banner</label>
+                            <input type="file" class="form-control" id="eventBanner" accept="image/*">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="createEventBtn">Create Event</button>
+                    <button type="button" class="btn btn-accent" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <script>
+        // Initialize date picker
+        flatpickr("#eventDateTime", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            minDate: "today"
+        });
+
+        // Sample events data
+        const events = [
+            {
+                id: 1,
+                name: "Hackathon 2024",
+                date: "2024-03-15 09:00",
+                venue: "Engineering Building",
+                club: "Programming Club",
+                description: "Join us for a 24-hour coding challenge!",
+                image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+                isPast: false
+            },
+            {
+                id: 2,
+                name: "Photography Workshop",
+                date: "2024-03-20 14:00",
+                venue: "Arts Center",
+                club: "Photography Club",
+                description: "Learn the basics of portrait photography.",
+                image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=800&q=80",
+                isPast: false
+            },
+            {
+                id: 3,
+                name: "Chess Tournament",
+                date: "2024-02-10 10:00",
+                venue: "Student Center",
+                club: "Chess Club",
+                description: "Annual chess championship.",
+                image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=800&q=80",
+                isPast: true
+            }
+        ];
+
+        // Function to create event card
+        function createEventCard(event) {
+            return `
+                <div class="col-md-4">
+                    <div class="card event-card">
+                        <img src="${event.image}" class="card-img-top event-banner" alt="${event.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${event.name}</h5>
+                            <p class="card-text text-muted">
+                                <small>
+                                    <i class="bi bi-calendar"></i> ${new Date(event.date).toLocaleDateString()} at ${new Date(event.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                </small>
+                            </p>
+                            <p class="card-text">
+                                <i class="bi bi-geo-alt"></i> ${event.venue}
+                            </p>
+                            ${event.club ? `<p class="card-text"><small class="text-muted">Hosted by ${event.club}</small></p>` : ''}
+                            <p class="card-text">${event.description}</p>
+                            <button class="btn btn-secondary">
+                                ${event.isPast ? 'View Details' : 'Join Event'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to render events
+        function renderEvents() {
+            const upcomingContainer = document.getElementById('upcomingEvents');
+            const pastContainer = document.getElementById('pastEvents');
+            
+            upcomingContainer.innerHTML = events
+                .filter(event => !event.isPast)
+                .map(event => createEventCard(event))
+                .join('');
+            
+            pastContainer.innerHTML = events
+                .filter(event => event.isPast)
+                .map(event => createEventCard(event))
+                .join('');
+        }
+
+        // Create new event
+        document.getElementById('createEventBtn').addEventListener('click', function() {
+            const form = document.getElementById('eventForm');
+            if (form.checkValidity()) {
+                const newEvent = {
+                    id: events.length + 1,
+                    name: form.querySelector('#eventName').value,
+                    date: form.querySelector('#eventDateTime').value,
+                    venue: form.querySelector('#eventVenue').value,
+                    club: form.querySelector('#eventClub').value,
+                    description: form.querySelector('#eventDescription').value,
+                    image: 'https://via.placeholder.com/800x200', // Placeholder image
+                    isPast: new Date(form.querySelector('#eventDateTime').value) < new Date()
+                };
+                events.push(newEvent);
+                renderEvents();
+                alert('Event created successfully!');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('createEventModal'));
+                modal.hide();
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        });
+        // Initial render
+        renderEvents();
+    </script>
+    <script src="event.js"></script>
+</body>
+</html>
