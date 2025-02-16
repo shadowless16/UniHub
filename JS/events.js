@@ -1,118 +1,105 @@
-// Sample data for events
+// Sample events data
 let events = [
     {
         id: 1,
-        name: "Tech Workshop 2024",
-        dateTime: "2024-03-15T14:00",
-        venue: "Main Auditorium",
+        name: "Tech Innovation Summit",
+        date: "2024-03-15T14:00",
+        venue: "Innovation Hub",
         club: "Tech Club",
-        description: "Learn about the latest web technologies",
-        isPast: false
+        description: "Join us for a day of cutting-edge technology discussions and demonstrations."
     },
     {
         id: 2,
-        name: "Sports Tournament",
-        dateTime: "2024-02-10T09:00",
-        venue: "University Stadium",
-        club: "Sports Club",
-        description: "Annual inter-college sports competition",
-        isPast: true
+        name: "Annual Art Exhibition",
+        date: "2024-03-20T10:00",
+        venue: "Art Gallery",
+        club: "Art Society",
+        description: "Showcase of student artwork from various mediums and styles."
     },
-    // Add more sample events as needed
+    {
+        id: 3,
+        name: "Sports Tournament",
+        date: "2024-02-01T09:00",
+        venue: "Sports Complex",
+        club: "Sports Club",
+        description: "Inter-university sports competition featuring multiple disciplines."
+    },
+    {
+        id: 4,
+        name: "Science Fair 2024",
+        date: "2024-01-15T11:00",
+        venue: "Main Auditorium",
+        club: "Science Club",
+        description: "Annual science fair featuring student projects and research presentations."
+    }
 ];
 
 // DOM Elements
-const modal = document.getElementById("eventFormModal");
-const createEventBtn = document.getElementById("createEventBtn");
-const closeBtn = document.querySelector(".close");
-const eventForm = document.getElementById("eventForm");
-const upcomingEventsGrid = document.getElementById("upcomingEvents");
-const pastEventsGrid = document.getElementById("pastEvents");
-const tabBtns = document.querySelectorAll(".tab-btn");
+const createEventBtn = document.getElementById('createEventBtn');
+const eventForm = document.getElementById('eventForm');
+const upcomingEventsContainer = document.getElementById('upcomingEvents');
+const pastEventsContainer = document.getElementById('pastEvents');
 
-// Initialize date picker
-flatpickr("#eventDateTime", {
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    minDate: "today"
+// Show/Hide event form
+createEventBtn.addEventListener('click', () => {
+    eventForm.classList.toggle('d-none');
 });
 
-// Event Listeners
-createEventBtn.addEventListener("click", () => modal.style.display = "block");
-closeBtn.addEventListener("click", () => modal.style.display = "none");
-window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-});
-
-// Tab switching
-tabBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        tabBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        
-        document.querySelectorAll(".events-section").forEach(section => {
-            section.classList.remove("active");
-        });
-        document.getElementById(btn.dataset.tab).classList.add("active");
-    });
-});
-
-// Form submission
-eventForm.addEventListener("submit", (e) => {
+// Handle form submission
+eventForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
     const newEvent = {
-        id: events.length + 1,
-        name: document.getElementById("eventName").value,
-        dateTime: document.getElementById("eventDateTime").value,
-        venue: document.getElementById("venue").value,
-        club: document.getElementById("club").value,
-        description: document.getElementById("description").value,
-        isPast: false
+        id: Date.now(),
+        name: document.getElementById('eventName').value,
+        date: document.getElementById('eventDate').value,
+        venue: document.getElementById('venue').value,
+        club: document.getElementById('club').value,
+        description: document.getElementById('description').value
     };
-    
+
     events.push(newEvent);
-    renderEvents();
-    modal.style.display = "none";
     eventForm.reset();
+    eventForm.classList.add('d-none');
+    displayEvents();
 });
 
-// Render events
-function renderEvents() {
-    const currentDate = new Date();
-    
-    // Filter events
-    const upcomingEvents = events.filter(event => new Date(event.dateTime) > currentDate);
-    const pastEvents = events.filter(event => new Date(event.dateTime) <= currentDate);
-    
-    // Render upcoming events
-    upcomingEventsGrid.innerHTML = upcomingEvents.map(event => createEventCard(event)).join("");
-    
-    // Render past events
-    pastEventsGrid.innerHTML = pastEvents.map(event => createEventCard(event)).join("");
+// Display events
+function displayEvents() {
+    const now = new Date();
+    const upcomingEvents = events.filter(event => new Date(event.date) > now);
+    const pastEvents = events.filter(event => new Date(event.date) <= now);
+
+    upcomingEventsContainer.innerHTML = renderEvents(upcomingEvents, false);
+    pastEventsContainer.innerHTML = renderEvents(pastEvents, true);
 }
 
-// Create event card HTML
-function createEventCard(event) {
-    const eventDate = new Date(event.dateTime);
-    return `
-        <div class="event-card">
-            <h3>${event.name}</h3>
-            <div class="event-info">
-                <p>📅 ${eventDate.toLocaleDateString()} ${eventDate.toLocaleTimeString()}</p>
-                <p>📍 ${event.venue}</p>
-                ${event.club ? `<p>🎭 ${event.club}</p>` : ''}
+function renderEvents(events, isPast) {
+    return events.map(event => {
+        const eventDate = new Date(event.date);
+        return `
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 ${isPast ? 'past-event' : ''}">
+                    <div class="card-body">
+                        <h5 class="card-title">${event.name}</h5>
+                        <p class="card-text">
+                            <i class="far fa-calendar me-2"></i>${eventDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}<br>
+                            <i class="far fa-clock me-2"></i>${eventDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}<br>
+                            <i class="fas fa-map-marker-alt me-2"></i>${event.venue}<br>
+                            <i class="fas fa-users me-2"></i>${event.club}
+                        </p>
+                        <p class="card-text">${event.description}</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary w-100" ${isPast ? 'disabled' : ''}>
+                            ${isPast ? 'Event Ended' : 'Join Event'}
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="event-actions">
-                ${!event.isPast ? 
-                    `<button class="join-btn">Join Event</button>` : 
-                    `<button class="join-btn" disabled>Event Ended</button>`
-                }
-                <button class="more-info-btn">More Info</button>
-            </div>
-        </div>
-    `;
+        `;
+    }).join('');
 }
 
-// Initial render
-renderEvents();
+// Initial display
+displayEvents();
