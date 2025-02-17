@@ -1,38 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Load header and sidebar
-    Promise.all([
-        fetch('/pages/components/header.html').then(response => response.text()),
-        fetch('/pages/components/sidebar.html').then(response => response.text())
-    ]).then(([headerHtml, sidebarHtml]) => {
-        // Insert components
-        document.getElementById('header-container').innerHTML = headerHtml;
-        document.getElementById('sidebar-container').innerHTML = sidebarHtml;
-        
-        // Get current page
-        const currentPage = document.body.getAttribute('data-page');
-        
-        // Set active states
-        if (currentPage) {
-            // For sidebar links
-            const sidebarLinks = document.querySelectorAll('.nav-link[data-page]');
-            sidebarLinks.forEach(link => {
-                if (link.getAttribute('data-page') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
+    // Load header
+    fetch('/components/header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+            // Initialize Bootstrap navbar toggler after loading
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarToggler) {
+                navbarToggler.addEventListener('click', function() {
+                    const target = document.querySelector(this.getAttribute('data-bs-target'));
+                    if (target) {
+                        target.classList.toggle('show');
+                    }
+                });
+            }
+        })
+        .catch(error => console.error('Error loading header:', error));
 
-            // For mobile nav
-            const mobileLinks = document.querySelectorAll('.fixed-bottom a');
-            mobileLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (
-                    (currentPage === 'profile' && href.includes('profile.html')) ||
-                    (currentPage === 'home' && href === '/index.html') ||
-                    (currentPage === 'clubs' && href.includes('joinclub.html'))
-                ) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
+    // Load sidebar
+    fetch('/components/sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading sidebar:', error));
 });

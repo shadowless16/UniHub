@@ -70,3 +70,19 @@ document.addEventListener('DOMContentLoaded', function() {
         input.parentNode.insertBefore(errorDiv, input.nextSibling);
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imageInput = document.getElementById('profileImage');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+});

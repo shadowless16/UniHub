@@ -1,71 +1,79 @@
-const clubData = {
-    featuredClubs: [
-        // {
-        //     id: 1,
-        //     name: "Photography Club",
-        //     image: "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg"
-        // },
-        // {
-        //     id: 2,
-        //     name: "Debate Society",
-        //     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
-        // },
-        // {
-        //     id: 3,
-        //     name: "Chess Club",
-        //     image: "https://images.pexels.com/photos/260024/pexels-photo-260024.jpeg"
-        // },
-        // {
-        //     id: 4,
-        //     name: "Tech Club",
-        //     image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg"
-        // }
+const clubsData = {
+    featured: [
+        {
+            id: 1,
+            name: "Programming Club",
+            image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+            category: "Academic",
+            members: 156,
+            description: "Join us to learn coding and build amazing projects"
+        },
+        {
+            id: 2,
+            name: "Photography Society",
+            image: "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848",
+            category: "Arts",
+            members: 89,
+            description: "Capture moments and learn professional photography"
+        },
+        {
+            id: 3,
+            name: "Basketball Team",
+            image: "https://images.unsplash.com/photo-1546519638-68e109498ffc",
+            category: "Sports",
+            members: 42,
+            description: "Join our competitive basketball team"
+        }
     ],
-
+    
     allClubs: [
-    //     {
-    //         id: 1,
-    //         name: "Photography Club",
-    //         memberCount: 156,
-    //         image: "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg",
-    //         category: "Arts"
-    //     },
-    //     {
-    //         id: 2,
-    //         name: "Debate Society",
-    //         memberCount: 89,
-    //         image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-    //         category: "Academic"
-    //     },
-    //     {
-    //         id: 3,
-    //         name: "Chess Club",
-    //         memberCount: 45,
-    //         image: "https://images.pexels.com/photos/260024/pexels-photo-260024.jpeg",
-    //         category: "Games"
-    //     },
-    //     {
-    //         id: 4,
-    //         name: "Tech Innovation Hub",
-    //         memberCount: 234,
-    //         image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
-    //         category: "Technology"
-    //     },
-    //     {
-    //         id: 5,
-    //         name: "Environmental Society",
-    //         memberCount: 167,
-    //         image: "https://images.pexels.com/photos/957024/forest-trees-perspective-bright-957024.jpeg",
-    //         category: "Environment"
-    //     },
-    //     {
-    //         id: 6,
-    //         name: "Dance Crew",
-    //         memberCount: 78,
-    //         image: "https://images.pexels.com/photos/2188012/pexels-photo-2188012.jpeg",
-    //         category: "Arts"
-    //     }
-    ],
-
-    // categories: ["All Clubs", "Academic", "Arts", "Sports"],
+        {
+            id: 1,
+            name: "Chess Club",
+            image: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b",
+            category: "Academic",
+            members: 45,
+            description: "Master the game of chess"
+        },
+        {
+            id: 2,
+            name: "Debate Society",
+            image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655",
+            category: "Academic",
+            members: 67,
+            description: "Enhance your public speaking skills"
+        },
+        {
+            id: 3,
+            name: "Art Studio",
+            image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b",
+            category: "Arts",
+            members: 34,
+            description: "Express yourself through various art forms"
+        },
+        {
+            id: 4,
+            name: "Music Band",
+            image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d",
+            category: "Arts",
+            members: 23,
+            description: "Join our band and make music together"
+        },
+        {
+            id: 5,
+            name: "Soccer Club",
+            image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974",
+            category: "Sports",
+            members: 56,
+            description: "Be part of our competitive soccer team"
+        },
+        {
+            id: 6,
+            name: "Science Club",
+            image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d",
+            category: "Academic",
+            members: 78,
+            description: "Explore the wonders of science"
+        }
+    ]
 };

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+
     <title>UniHub - Onboarding</title>
     <link rel="stylesheet" href="../../CSS/onboarding.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,6 +15,20 @@
             <h1>Welcome to UniHub</h1>
             <p>Let's set up your profile to get started!</p>
             <form id="onboardingForm" class="onboarding-form">
+                <!-- Profile Image Upload -->
+                <div class="form-group profile-image-upload">
+                    <div class="image-preview-container">
+                        <img id="imagePreview" src="../../assets/images/default-avatar.png" alt="Profile Preview">
+                        <div class="upload-overlay">
+                            <label for="profileImage" class="upload-label">
+                                <i class="fas fa-camera"></i>
+                                <span>Upload Photo</span>
+                            </label>
+                            <input type="file" id="profileImage" name="profileImage" accept="image/*" hidden>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="firstName">First Name</label>
                     <input type="text" id="firstName" name="firstName" required>
@@ -51,5 +67,6 @@
         </div>
     </div>
     <script src="../../JS/onboarding.js"></script>
+    <script src="../../JS/imagePreview.js"></script>
 </body>
 </html>
