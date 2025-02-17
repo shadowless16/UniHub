@@ -1,0 +1,26 @@
+:root {
+  --bs-primary: #3AAFA9;
+  --bs-link-color: #3AAFA9;
+  --bs-link-hover-color: #2a8783;
+  --bs-btn-hover-bg: #2a8783;
+}
+
+.btn-primary {
+  background-color: #3AAFA9;
+  border-color: #3AAFA9;
+}
+
+.text-primary {
+  color: #3AAFA9 !important;
+}
+
+/* Add input focus styles */
+.form-control:focus,
+.form-select:focus {
+  border-color: #3AAFA9;
+  box-shadow: 0 0 0 0.25rem rgba(58, 175, 169, 0.25);
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.25rem rgba(58, 175, 169, 0.25);
+}

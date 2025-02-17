@@ -123,3 +123,22 @@
 .post-interaction.liked {
   color: var(--accent);
 }
+
+#header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+main {
+    margin-top: 80px !important; /* Force margin to ensure content is below header */
+    padding-bottom: 70px; /* Add padding for mobile navigation */
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 60px !important;
+    }
+}

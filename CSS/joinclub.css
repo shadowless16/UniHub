@@ -1,3 +1,11 @@
+:root {
+    --primary: #2A3B4F;
+    --secondary: #3AAFA9;
+    --accent: #FF6B6B;
+    --bs-secondary-rgb: 58, 175, 169;
+    --bs-secondary: #3AAFA9;
+}
+
 .fixed-bottom .nav-link {
     box-shadow: none;
 }

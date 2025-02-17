@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Load header
-    fetch('/components/header.html')
+    fetch('/pages/components/header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-container').innerHTML = data;
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error loading header:', error));
 
     // Load sidebar
-    fetch('/components/sidebar.html')
+    fetch('/pages/components/sidebar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('sidebar-container').innerHTML = data;
