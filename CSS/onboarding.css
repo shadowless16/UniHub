@@ -148,6 +148,24 @@ body {
     box-shadow: 0 0 0 3px rgba(58, 175, 169, 0.2);
 }
 
+.onboarding-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--neutral-light);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.onboarding-form textarea:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(58, 175, 169, 0.2);
+}
+
 .btn-primary {
     display: block;
     width: 100%;
